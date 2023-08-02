@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>  
+    <style>
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+     <p id="paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum mauris in mi auctor lobortis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed auctor arcu a nisl fermentum, id ullamcorper tortor pretium. Duis sagittis diam quis dolor posuere, vitae ullamcorper quam sagittis. Proin vitae enim ac risus pulvinar bibendum.
+  </p>
+    <script>
+        const paragraph = document.getElementById('paragraph');
+const words = paragraph.textContent.split(' ');
+
+words.forEach((word, index) => {
+  if (word.length > 8) {
+    words[index] = `<span class="highlight">${word}</span>`;
+  }
+});
+
+paragraph.innerHTML = words.join(' ');
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h1>Numbers Divisible by 3, Not by 2</h1>
+  <label for="inputNumbers">Enter comma-separated numbers:</label>
+  <input type="text" id="inputNumbers">
+  <button onclick="findNumbers()">Find Numbers</button>
+  <div id="result"></div>
+
+    <script>
+        
+        function findNumbers() {
+  const inputNumbers = document.getElementById('inputNumbers').value;
+  const numbers = inputNumbers.split(',').map(Number);
+  const resultElement = document.getElementById('result');
+  resultElement.innerHTML = '';
+
+  for (let i = 0; i < numbers.length; i++) {
+    const number = numbers[i];
+
+    if (number % 3 === 0 && number % 2 !== 0) {
+      resultElement.innerHTML += number + '<br>';
+    } else {
+      continue;
+    }
+  }
+}
+
+    </script>
+</body>
+</html>

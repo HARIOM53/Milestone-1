@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1>Banking Application</h1>
+  <button onclick="deposit()">Deposit</button>
+  <button onclick="withdraw()">Withdraw</button>
+  <div id="result"></div>
+    <script>
+        const customer = {
+  name: 'John Doe',
+  balance: 1000,
+};
+
+const deposit = () => {
+  const amount = parseFloat(prompt('Enter the deposit amount:'));
+  if (isNaN(amount) || amount <= 0) {
+    alert('Invalid deposit amount. Please enter a positive number.');
+    return;
+  }
+
+  customer.balance += amount;
+  showResult(`Deposit successful. New balance: $${customer.balance}`);
+};
+
+const withdraw = () => {
+  const amount = parseFloat(prompt('Enter the withdrawal amount:'));
+  if (isNaN(amount) || amount <= 0) {
+    alert('Invalid withdrawal amount. Please enter a positive number.');
+    return;
+  }
+
+  if (amount > customer.balance) {
+    alert('Insufficient balance. Cannot withdraw the requested amount.');
+    return;
+  }
+
+  customer.balance -= amount;
+  showResult(`Withdrawal successful. New balance: $${customer.balance}`);
+};
+
+const showResult = (message) => {
+  const resultElement = document.getElementById('result');
+  resultElement.innerHTML = message;
+};
+
+    </script>
+</body>
+</html>

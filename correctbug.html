@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1>Cart Quantity Correction</h1>
+  <label for="inputCart">Enter comma-separated quantities:</label>
+  <input type="text" id="inputCart">
+  <button onclick="correctCart()">Correct Cart</button>
+  <div id="originalCart">
+    <h2>Original Cart</h2>
+    <ul id="originalItems"></ul>
+  </div>
+  <div id="correctedCart">
+    <h2>Corrected Cart</h2>
+    <ul id="correctedItems"></ul>
+  </div>
+    <script>
+        function correctCart() {
+  const inputCart = document.getElementById('inputCart').value;
+  const originalCart = inputCart.split(',').map(Number);
+  const correctedCart = originalCart.map(item => item * 2);
+
+  displayCart(originalCart, 'originalItems');
+  displayCart(correctedCart, 'correctedItems');
+}
+
+function displayCart(cart, elementId) {
+  const cartElement = document.getElementById(elementId);
+  cartElement.innerHTML = '';
+
+  cart.forEach(quantity => {
+    const li = document.createElement('li');
+    li.innerText = quantity;
+    cartElement.appendChild(li);
+  });
+}
+
+    </script>
+</body>
+</html>

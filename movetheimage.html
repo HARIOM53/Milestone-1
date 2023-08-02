@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=z, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #image {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      </style>
+</head>
+<body>
+    <img id="image" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Moving Image">
+
+    <script>
+        const image = document.getElementById('image');
+let x = 0;
+let y = 0;
+const step = 10;
+
+const moveImage = (direction) => {
+  switch (direction) {
+    case 'ArrowUp':
+      y -= step;
+      break;
+    case 'ArrowDown':
+      y += step;
+      break;
+    case 'ArrowLeft':
+      x -= step;
+      break;
+    case 'ArrowRight':
+      x += step;
+      break;
+  }
+  image.style.top = `${y}px`;
+  image.style.left = `${x}px`;
+};
+
+document.addEventListener('keydown', (event) => {
+  moveImage(event.key);
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+</head>
+<body>
+  <label for="num1">Number1 :</label>
+  <input type="number" id="num1" name="num1">
+  <label for="oprator">Oprator :</label>
+  <input list="oprators" id="oprator" name="oprator">
+  <datalist id="oprators">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </datalist>
+  <label for="num2">Number2 :</label>
+  <input type="number" id="num2" name="num2">
+  <button onclick="calculate()">calculate</button>
+
+  <div id="result"></div>
+  <script>
+    function calculate() {
+     let num1 = Number(document.getElementById("num1").value);
+     let num2 = Number(document.getElementById("num2").value);
+     let oprator = document.getElementById("oprator").value;
+     let result = "";
+
+     switch (oprator) {
+      case "+":
+        result = num1 + num2;
+        break;
+        case "-":
+          result = num1 - num2;
+          break;
+        case "*":
+          result = num1 * num2;
+          break;
+        case "/":
+          result = num1 / num2;
+          break;
+        default:
+        result = "Invalid oprator";
+        break;
+     }
+     if (typeof result !== "string") {
+    document.getElementById("result").textContent = "Result: " + result;
+  } else {
+    document.getElementById("result").textContent = result;
+  }
+    }
+
+  </script>
+</body>
+</html>

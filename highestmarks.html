@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Input the number</h1>
+    <input type="number" id="mark1">
+    <input type="number" id="mark2">
+    <input type="number" id="mark3">
+    <input type="number" id="mark4">
+    <input type="number" id="mark5">
+    <button onclick="findHighestMark()">find hightest marks</button>
+    <div id="result"></div>
+    <script>
+       function findHighestMark() {
+        let Student1 = parseInt(document.getElementById("mark1").value);
+        let Student2 = parseInt(document.getElementById("mark2").value);
+        let Student3 = parseInt(document.getElementById("mark3").value);
+        let Student4 = parseInt(document.getElementById("mark4").value);
+        let Student5 = parseInt(document.getElementById("mark5").value);
+        
+        let marksArray = [Student1 , Student2 , Student3 , Student4 , Student5];
+
+
+        let highestMarks = marksArray.reduce(function (a,b) {
+            return Math.max(a,b);
+        });
+
+        document.getElementById("result").textContent =  "Highest Marks : "+ highestMarks;
+
+
+       }        
+    </script>
+</body>
+</html>

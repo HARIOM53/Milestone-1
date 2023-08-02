@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <h1>Shopping Cart</h1>
+  
+  <div id="items">
+    <h2>Available Items</h2>
+    <ul>
+      <li>Item 1<button onclick="addToCart('Item 1')">Add to Cart</button></li>
+      <li>Item 2<button onclick="addToCart('Item 2')">Add to Cart</button></li>
+      <li>Item 3<button onclick="addToCart('Item 3')">Add to Cart</button></li>
+    </ul>
+  </div>
+  
+  <div id="cart">
+    <h2>Cart</h2>
+    <ul id="cartItems"></ul>
+    <button onclick="removeDuplicates()">Remove Duplicates</button>
+  </div>
+    <script>
+let cartItems = [];
+
+// Function to add an item to the cart
+function addToCart(item) {
+  cartItems.push(item);
+  updateCart();
+}
+
+// Function to update the cart display
+function updateCart() {
+  let cartItemsElement = document.getElementById('cartItems');
+  cartItemsElement.innerHTML = '';
+  
+  for (let i = 0; i < cartItems.length; i++) {
+    let li = document.createElement('li');
+    li.innerText = cartItems[i];
+    cartItemsElement.appendChild(li);
+  }
+}
+
+// Function to remove duplicate items from the cart
+function removeDuplicates() {
+  cartItems = [...new Set(cartItems)];
+  updateCart();
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Random Number Generator</h1>
+  <button onclick="generateRandomNumber()">Generate Random Number</button>
+  <div id="result"></div>
+    <script>
+        const generateRandomNumber = () => {
+  const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+  const resultElement = document.getElementById('result');
+  resultElement.innerHTML = `Random Number: ${randomNumber}`;
+};
+
+// Self-invoking the arrow function to generate a random number when the program starts
+(() => {
+  generateRandomNumber();
+})();
+
+    </script>
+</body>
+</html>
